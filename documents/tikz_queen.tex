@@ -1,0 +1,45 @@
+
+\path (30:1)  coordinate (C1); \path (70:1)  coordinate (C2);
+\path (110:1) coordinate (C3); \path (150:1) coordinate (C4);
+
+\draw[thick]
+  (C4) .. controls +(-10:0.1) and +(135:0.1) .. (150:0.5) 
+       .. controls +(135:0.1) and +(-110:0.1) .. (C3) 
+       .. controls +(-30:0.1) and +(90:0.1) .. (90:0.3) 
+       .. controls +(90:0.1) and +(-150:0.1) .. (C2)
+       .. controls +(-80:0.1) and +(45:0.1) .. (30:0.5) 
+       .. controls +(45:0.1) and +(190:0.1) .. (C1)
+       .. controls +(-90:0.1) and +(45:0.1) .. (0.625,-0.125) 
+       .. controls +(315:0.1) and +(80:0.1) .. (0.6, -0.6) 
+       .. controls +(260:0.1) and +(280:0.1) .. (-0.6, -0.6) 
+       .. controls +(100:0.1) and +(225:0.1) .. (-0.625,-0.125) 
+       .. controls +(135:0.1) and +(-90:0.1) .. (C4) --cycle;
+
+\draw[thick] (C1) circle (0.1); \draw[thick] (C2) circle (0.1);
+\draw[thick] (C3) circle (0.1); \draw[thick] (C4) circle (0.1);
+
+\fill[white] (C1) circle (0.1); \fill[white] (C2) circle (0.1);
+\fill[white] (C3) circle (0.1); \fill[white] (C4) circle (0.1);
+
+\clip  (C4) .. controls +(-10:0.1) and +(135:0.1) .. (150:0.5) 
+       .. controls +(135:0.1) and +(-110:0.1) .. (C3) 
+       .. controls +(-30:0.1) and +(90:0.1) .. (90:0.3) 
+       .. controls +(90:0.1) and +(-150:0.1) .. (C2)
+       .. controls +(-80:0.1) and +(45:0.1) .. (30:0.5) 
+       .. controls +(45:0.1) and +(190:0.1) .. (C1)
+       .. controls +(-90:0.1) and +(45:0.1) .. (0.625,-0.125) 
+       .. controls +(315:0.1) and +(80:0.1) .. (0.6, -0.6) 
+       .. controls +(260:0.1) and +(280:0.1) .. (-0.6, -0.6) 
+       .. controls +(100:0.1) and +(225:0.1) .. (-0.625,-0.125) 
+       .. controls +(135:0.1) and +(-90:0.1) .. (C4) --cycle;
+
+\fill[white] (-1,-1) rectangle (1,1);
+
+\draw[] (C1) circle (0.1); \draw[] (C2) circle (0.1);
+\draw[] (C3) circle (0.1); \draw[] (C4) circle (0.1);
+
+\draw[] (-0.625,-0.125) .. controls +(60:0.2) and
++(120:0.2) .. (0.625,-0.125);
+\draw[] (0.6, -0.6) .. controls +(100:0.1) and 
++( 80:0.1) .. (-0.6, -0.6);
+
