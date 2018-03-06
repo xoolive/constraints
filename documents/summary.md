@@ -26,6 +26,70 @@ At the end of the lab session, you should be able to:
 - use a key-in-hand solver, implement a model and get the solution;
 - explain the highlights of *depth-first search* solving methods.
 
+# Introduction
+
+## Workforce scheduling
+
+Consider a bus company scheduling drivers for its buses. The requirement for
+buses varies from hour to hour because of customer demand. For example, four
+buses must run from midnight to 4 a.m., while eight buses must run from 4 a.m.
+until 8 a.m. We assume that the bus requirements are the same every day.
+
+The problem is to determine how many drivers to schedule at each starting time
+to cover the requirements for buses. Drivers work eight hour shifts, e.g. a
+driver starting at time 0 can drive a bus from time 0 to 8. A driver scheduled
+to start at time 20 works for the final four hours of the day and the first
+four hours of the next day.
+
+Although a driver can be hired for an eight hour period, there is no requirement
+that he drives a bus for the entire period. However, he cannot be on duty during
+two consecutive shifts.
+
+The goal is to minimize how many drivers to hire during a week.
+
+## Productivity rate
+
+Consider an aircraft manufacturing company. With practice and experience, they
+have optimised their production line and comfortably assemble 48 aircraft per
+month. Yet, they have recently accepted a significant number of orders and need
+to increase their production accordingly: stakeholders set an objective of 52
+aircraft per month.
+
+- Each aircraft should pass through different workstations;
+- Specific tasks are to be performed by qualified human operators;
+- Some critical tasks are constrained by precedence relationships (i.e., they
+must be performed before others);
+- Some critical tasks require specific equipments only available in limited
+quantity; moreover, these equipments cannot be moved from a workstation to
+another and are only be handled by operators who followed an appropriate
+training;
+- Operators need time to move from a workstation to another;
+- Few equipments need to cool down before being used again after some
+particularly demanding tasks;
+- Schedules for operators are subject to labour laws regulating consecutive
+working hours.
+
+The goal is to find an efficient scheduling for tasks, operators and
+workstations such that 52 aircraft per month are assembled.
+
+\vspace{1em}
+
+These problems are typical scheduling problems that are well fit for the
+Constraint Programming paradigm. The core concept behind constraint programming
+is basic: define variables, domains, and constraints that describe relationships
+with your variables. If relevant, you may define an objective function to
+minimise (resp. maximise)
+
+Basic arithmetic is provided *for free*, as well as some human-friendly
+convenient tools. In particular, Constraint Programming comes with:
+
+- disjunctions of (basic) constraints, implications;
+- array-indexing with variables, getting the smallest element of an array of
+variables, etc.;
+- global constraints with specific propagation methods optimised for resolution
+(`alldifferent`, `cardinality`, `precedence`, etc.)
+
+
 
 # Definition
 
@@ -34,20 +98,28 @@ A *constraint satisfaction problem* consists of:
 
 - a finite set of variables $x_1,... x_n$;
 - a corresponding set of finite domains $d_1, ... d_n$;
-- a finite set of constraints over subsets of variables, i.e. relations expressing *which attributions of variables to values conflict with each other*.
+- a finite set of constraints over subsets of variables, i.e. relations
+expressing *which assignations of variables to values are acceptable*.
 
-The objective is to find an instantiation of values to variables which satisfies all the expressed constraints.
+The objective is to find an instantiation of values to variables within their
+domains, which satisfies all the expressed constraints.
 
 
 \noindent \textbf{Example}:
 
-A problem of two variables $x, y \in \{0, 1, 2\}$ subject to $x \neq y$ (the constraint) is a constraint satisfaction problem.
+A problem of two variables $x, y \in \{0, 1, 2\}$ subject to the constraint
+$x \neq y$ is a constraint satisfaction problem.
 
-\noindent \emph{Notes}:
+\noindent Keep in mind that:
 
-- Unlike *Linear Programming*, there is no restriction on the nature of constraints as long as the solver is able to determine for any instantiation if it violates any of the constraints stated.^[If you can explain the constraint with words in proper English, you can probably state it using constraint programming.]
-- It is **not** possible to manipulate infinite domains---not to say continuous.
-- In theory, the domains can be formed of *anything*. However, it is a common practice to associate these pieces of *anything* with finite sets of integers.
+- Unlike *Linear Programming*, there is no restriction on the nature of
+constraints as long as the solver is able to determine for any instantiation if
+it violates any of the constraints stated.^[If you can explain the constraint
+with words in proper English, you can probably state it using constraint
+programming.]
+- It is **not** possible to manipulate infinite domains.
+- In theory, the domains can be formed of *anything*. However, it is a common
+practice to associate these pieces of *anything* with finite sets of integers.
 
 # Illustrative problems
 
@@ -59,11 +131,12 @@ A problem of two variables $x, y \in \{0, 1, 2\}$ subject to $x \neq y$ (the con
 \end{alignat*}
 }
 
-1. Which numbers can we use to replace the following letters so that the addition stands true? \label{money}
+1. Which digits can we use to replace the following letters so that the addition
+   stands true? \label{money}
 
 *Each letter can be associated to a variable taking values between 0 and 9. All variables are linked by the following arithmetic constraint $\mathsf S \times 1000 + \mathsf E \times 100 + ... = ... + \mathsf E \times 10 + \mathsf Y$*.
 
-2. Place 8 queens on a chess board so that no two queens attack each other.
+2. Place 8 queens on a board so that no two queens attack each other.
 
 \begin{marginfigure}
 \centering
@@ -115,12 +188,11 @@ A problem of two variables $x, y \in \{0, 1, 2\}$ subject to $x \neq y$ (the con
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{g20534}
-\caption{An (optimal?) colouring of administrative regions of France.}
+\caption{A (probably not optimal) colouring of (former) administrative regions of France.}
 \end{marginfigure}
 
-Note the mathematical theorem stating that at most four colours are necessary for a proper colouring of such maps (graphs).
-
-We can use $n=4$ for a start and choose to decrease $n$ until no solution is found.\hfill\PointingHand\quad \emph{constraint satisfaction problem}
+You may recall the mathematical theorem stating that at most four colours are necessary for a proper colouring of such maps^[Then, you should remember that some graphs **cannot be represented as plane maps**: there are many graphs that cannot be coloured with less than five colours.].
+We can use $n=4$ for a *start* (upper bound) and choose to decrease $n$ until no solution is found.\hfill\PointingHand\quad \emph{constraint satisfaction problem}
 
 A more complicated---albeit general---approach would be to add an minimising criterion (optimisation) on the total number of colours used in a satisfying colouring. \hfill\PointingHand\quad \emph{constraint optimisation problem\marginnote{\ForwardToIndex\quad see Definition on page \pageref{cop}}}
 
@@ -165,9 +237,6 @@ Each constraint is associated with:
     fill=gray!40, minimum height=.05em},
 }
 
-A common resolution process implements a *depth-first search* algorithm in a tree that is built *on the fly*:
-
-- We first choose an ordering over the variables. We shall name them $x_1, x_2, \cdots x_n$;
 
 \begin{marginfigure}
 \begin{itemize}
@@ -180,9 +249,12 @@ A common resolution process implements a *depth-first search* algorithm in a tre
 \caption{Sample problem}
 \label{fig:sample}
 \end{marginfigure}
+
+A common resolution process implements a *depth-first search* algorithm in a tree that is built *on the fly*:
+
+- We first choose an ordering over the variables: $x_1, x_2, \cdots x_n$;
 - The first branch of the first level of the tree maps to the instantiation of the first possible value of variable $x_1$;  
 From this node, the first branch (of the second level) of the tree maps appends to the preceding *partial instantiation* the instantiation of the first possible value for variable $x_2$;
-
 
 \begin{marginfigure}
 \centering
@@ -219,9 +291,6 @@ child { node [yet] (y3) {} edge from parent [gray!40, thin, dashed]} ;
 \caption{Illustration of the mapping between the tree-like view and partial instantiations.}
 \label{fig:mapping}
 \end{marginfigure}
-- At each node (a.k.a. partial instantiation), the algorithm checks the validity of all constraints whose scope is included in the set of already assigned variables:
-    - if no conflict is raised, the search goes *deeper* and a new variable is assigned;
-    - if a conflict is raised, the search goes *backward* and invalidates the assumptions already made. \hfill\PointingHand\quad \emph{backtracking, fig. \ref{fig:backtrack}}
 
 \begin{marginfigure}
 \centering
@@ -286,9 +355,11 @@ child { node [yet] (y3) {} edge from parent [gray!40, thin, dashed]} ;
 \end{marginfigure}
 
 
-*Take enough time to understand the process of depth-first search with figures \ref{fig:sample} through to \ref{fig:found}.*
+- At each node (a.k.a. partial instantiation), the algorithm checks the validity of all constraints whose scope is included in the set of already assigned variables: \hfill\PointingHand\quad \emph{constraint propagation}
+    - if no conflict is raised, the search goes *deeper* and a new variable is assigned;
+    - if a conflict is raised, the search goes *backward* and invalidates the assumptions already made. \hfill\PointingHand\quad \emph{backtracking, fig. \ref{fig:backtrack}}
 
-\noindent \emph{Notes}:
+*Take enough time to understand the process of depth-first search with figures \ref{fig:mapping} through to \ref{fig:found}.*
 
 - The choice of the variable and/or value order can have a significant impact on the size of the tree, i.e. on the resolution time. Some heuristics (e.g., choose first the variable with the smaller domain) may yield better performance.
 - Do keep in mind that no tree is actually built in memory: the branching is made *on the fly* and the tree representation only illustrates the algorithm.
@@ -302,6 +373,14 @@ The basic backtracking algorithm we implemented on the toy problem shows several
 
 - the domain of $x_3$ should be limited to $\{1, 2, 3\}$ to avoid countless instantiations of value $0$ to variable $x_3$ and subsequent backtracking.
 - a similar domain reduction should be implemented on *binary constraints*^[A binary constraint has a scope of 2 variables (arity 2).]. If $c_1: x_1 \neq x_2$, assigning value $0$ to $x_1$ should remove $0$ from the domain of $x_2$ in the sub-tree rooted in $(0,\cdot,\cdot)$.
+
+A basic optimisation consists of \emph{maintaining arc-consistency}, i.e. pruning the domains of variables which are not yet assigned but linked to assigned variables through binary constraints.
+
+We can illustrate the benefits of this \emph{forward-checking} approach with the 8-queen problem. When the first (red) queen is placed, we prune the domain of all the other queens (red dots). Then, instead of trying position 1 and 2, the second (green) queen is directly placed on the first value of its subsequent domain, i.e. position 3.
+
+When the third (blue) queen is placed, the domain of the sixth queen is reduced a single value (i.e. position 4); however, the placement of the fourth (violet) queen eliminates all values of the domain of this queen. A backtrack can be triggered at that point.
+
+Note that with this arc-consistency technique, the first backtrack occurs for instance $(1,3,5,2,\cdot,\cdot,\cdot,\cdot)$. Without this optimisation, we would have already backtracked 7 times before reaching this partial instantiation, and would still need to make several attempts/backtracks for queens #5 and #6 before realising they lead to no solution.
 
 \begin{marginfigure}
 
@@ -447,13 +526,6 @@ The basic backtracking algorithm we implemented on the toy problem shows several
 
 \end{marginfigure}
 
-A basic optimisation consists of \emph{maintaining arc-consistency}, i.e. pruning the domains of variables which are not yet assigned but linked to assigned variables through binary constraints.
-
-We can illustrate the benefits of this \emph{forward-checking} approach with the 8-queen problem. When the first (red) queen is placed, we prune the domain of all the other queens (red dots). Then, instead of trying position 1 and 2, the second (green) queen is directly placed on the first value of its subsequent domain, i.e. position 3.
-
-When the third (blue) queen is placed, the domain of the sixth queen is reduced a single value (i.e. position 4); however, the placement of the fourth (violet) queen eliminates all values of the domain of this queen. A backtrack can be triggered at that point.
-
-Note that with this arc-consistency technique, the first backtrack occurs for instance $(1,3,5,2,\cdot,\cdot,\cdot,\cdot)$. Without this optimisation, we would have already backtracked 7 times before reaching this partial instantiation, and would still need to make several attempts/backtracks for queens #5 and #6 before realising they lead to no solution.
 
 *There are many algorithms designed to maintain arc-consistency and detect irrelevant sub-trees as soon as possible.*
 
@@ -629,7 +701,7 @@ Formally speaking, a symmetry may be a permutation on the variables ($q_1 \right
     \end{scope}
 \end{tikzpicture}
 \end{center}
-\caption{Symmetries in the n-queen problem}
+% \caption{Symmetries in the n-queen problem}
 \end{figure}
 
 There are several ways to exploit the symmetries of a problem:
@@ -647,12 +719,12 @@ As a matter of fact, it is important to find a good balance when writing models:
 
 # Exercices
 
-- Two constraints may be missing in the suggested model of the "Send more money" problem. Add them to the model. \marginnote{\RewindToIndex\quad see page \pageref{money}}
+- Two constraints may be missing in the suggested model of the "send more money" problem. Add them to the model. \marginnote{\RewindToIndex\quad see page \pageref{money}}
 
 - Suggest a different model of the problem. You may need to add *hidden* variables that do not appear in the definition of the problem, yet are involved in the constraints.  
-\hfill\PointingHand\quad \emph{Think of how you compute additions by hand.}
+\hfill\PointingHand\quad \emph{Think of how you compute additions manually.}
 
-- Find an empty sudoku grid on the Internet. Model the problem and keep your draft at hand: you will be able to implement it after the lab session.
+- Find a sudoku grid on the Internet. Model the problem and keep your draft at hand: you will be able to implement it after the lab session.
 
 - The golf tournament problem can be stated as follows:
 
