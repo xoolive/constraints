@@ -1,7 +1,8 @@
 from collections import UserDict
 
+
 class PicrossLoader(UserDict):
-    
+
     def __getitem__(self, name):
         problem = UserDict.__getitem__(self, name)
         lines = [[int(s) for s in s_.split(',')]
@@ -9,7 +10,31 @@ class PicrossLoader(UserDict):
         columns = [[int(s) for s in s_.split(',')]
                    for s_ in problem['columns'].split(' ')]
         return lines, columns
-    
+
+    def __missing__(self, name):
+        with open(name + ".non", 'r') as fh:
+            lines = []
+            columns = []
+            rows_flag = False
+            columns_flag = False
+            for line in fh.readlines():
+                line = line.strip()
+                if line == "rows":
+                    rows_flag = True
+                    columns_flag = False
+                    continue
+                if line == "columns":
+                    rows_flag = False
+                    columns_flag = True
+                    continue
+                if line == "":
+                    continue
+                if rows_flag:
+                    lines.append(line)
+                if columns_flag:
+                    columns.append(line)
+        return {'lines': " ".join(lines), 'columns': " ".join(columns)}
+
 
 picross = PicrossLoader({
     'moon': {'lines': "2 2 1,2 5 3", 'columns': "2 2 1,2 5 3"},
