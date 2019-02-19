@@ -8,7 +8,7 @@ pip install facile
 
 To download the materials:
 ```sh
-git clone https://github.com/xoolive/edu_constraints
+git clone https://github.com/letstrythat/constraints
 ```
 
 The notebook for the basic lab session is `notebook/lab-session.ipynb`.
