@@ -4,8 +4,8 @@ This is a short course about constraint programming.
 
 ## Materials
 
-- a short [introduction](https://github.com/xolearn/constraints/blob/master/documents/summary.pdf), tl;dr version of the minimum to know about constraint programming;
-- the pdf version slides for a 3h course
+- a tl;dr [introduction](https://github.com/xolearn/constraints/blob/master/documents/summary.pdf) with the minimum to know about constraint programming;
+- slides for a 3h course, pdf version
 
 ## Lab session
 
@@ -24,3 +24,8 @@ The notebook for the basic lab session is `notebook/lab-session.ipynb`.
 
 Several projects are available in the `problems/` folder. You will be evaluated on one of the projects available there. Obviously, these notebooks do not contain any hint or solution.
 
+## Further reading
+
+- *Constraint Processing* (book) by Rina Dechter
+- [Le problème des 8 reines... et au-delà](https://tinyurl.com/8reines)  par Jean-Paul Delahaye.  
+  Pour la science, janvier 2016
