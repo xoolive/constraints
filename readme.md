@@ -32,7 +32,7 @@ In case you are stuck with your configuration, you can fallback to a less comfor
 
 Several projects are available in the `problems/` folder. You will be evaluated on one of the projects available there. Obviously, these notebooks do not contain any hint or solution.
 
-## Further reading
+## Further reading
 
 - *Constraint Processing* (book) by Rina Dechter
 - [Le problème des 8 reines... et au-delà](https://tinyurl.com/8reines)  par Jean-Paul Delahaye.  
