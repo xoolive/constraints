@@ -22,10 +22,14 @@ The notebook for the basic lab session is `notebook/lab-session.ipynb`.
 
 ### Troubleshooting
 
-In case you are stuck with your configuration, you can fallback to a less comfortable option with [Google Colab](https://colab.research.google.com/github/xolearn/constraints/blob/master/notebooks/lab_session.ipynb):
+In case you are stuck with your configuration, you can fall back to a slightly less comfortable option with [Google Colab](https://colab.research.google.com/github/xolearn/constraints/blob/master/notebooks/lab_session.ipynb):
 
 - click on the [link](https://colab.research.google.com/github/xolearn/constraints/blob/master/notebooks/lab_session.ipynb);
-- insert a new cell at the top of the notebook with `!pip install facile` and execute it to install the library;
+- insert a new cell at the top of the notebook with  
+  ```
+  !pip install facile
+  ```  
+  and execute it to install the library;
 - all the `%load` commands for the solutions will not work: you will have to copy paste the solutions directly from each of these files.
 
 ## Project
