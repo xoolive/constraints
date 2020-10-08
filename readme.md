@@ -4,7 +4,7 @@ This is a short course about constraint programming.
 
 ## Materials
 
-- a tl;dr [introduction](https://github.com/xolearn/constraints/blob/master/documents/summary.pdf) with the minimum to know about constraint programming;
+- a tl;dr [introduction](https://github.com/xolearn/constraints/blob/master/documents/summary.pdf) with the bare minimum to know about constraint programming;
 - slides for a 3h course, pdf version
 
 ## Lab session
@@ -19,6 +19,14 @@ jupyter lab
 ```
 
 The notebook for the basic lab session is `notebook/lab-session.ipynb`.
+
+### Troubleshooting
+
+In case you are stuck with your configuration, you can fallback to a less comfortable option with [Google Colab](https://colab.research.google.com/github/xolearn/constraints/blob/master/notebooks/lab_session.ipynb):
+
+- click on the [link](https://colab.research.google.com/github/xolearn/constraints/blob/master/notebooks/lab_session.ipynb);
+- insert a new cell at the top of the notebook with `!pip install facile` and execute it to install the library;
+- all the `%load` commands for the solutions will not work: you will have to copy paste the solutions directly from each of these files.
 
 ## Project
 
