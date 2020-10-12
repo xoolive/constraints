@@ -5,7 +5,7 @@ This is a short course about constraint programming.
 ## Materials
 
 - a tl;dr [introduction](https://github.com/xolearn/constraints/blob/master/documents/summary.pdf) with the bare minimum to know about constraint programming;
-- slides for a 3h course, pdf version
+- [slides](https://github.com/xolearn/constraints/blob/master/documents/slides.pdf) for a 3h course, pdf version
 
 ## Lab session
 
