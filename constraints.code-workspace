@@ -23,7 +23,6 @@
     },
     "[markdown]": {
       "editor.wordWrap": "wordWrapColumn"
-    },
-    "python.pythonPath": "/opt/miniconda3/envs/py39/bin/python"
+    }
   }
 }
