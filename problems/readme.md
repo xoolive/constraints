@@ -7,7 +7,7 @@ permalink: /problems/
 
 Several projects are available in the `problems/` folder. You will be evaluated on one of the projects available there. Obviously, these notebooks do not contain any hint or solution.
 
-List of problems:
+## List of candidate problems
 
 - [Airlines](airlines), scheduling crew members for a (small) airline;
 - [Picross](picross), a popular puzzle of a similar nature to Sudoku;
@@ -73,7 +73,7 @@ List of problems:
 
   a = facile.variable([0, 1, 2])
   b = facile.variable([0, 1, 2])
-  # The following line would also be correct:
+  # The following syntax would also be correct:
   # a, b = facile.Array.variable(2, [0, 1, 2])
 
   left = (a == b) & (a + b == 2)
