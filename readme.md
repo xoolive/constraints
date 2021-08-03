@@ -39,7 +39,7 @@ In case you are stuck with your configuration, you can fall back to a slightly l
 
 ## Project
 
-Several projects are available in the `problems/` folder. You will be evaluated on one of the projects available there. Obviously, these notebooks do not contain any hint or solution.
+More details on this [page](/problems).
 
 ## Further reading
 

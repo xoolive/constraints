@@ -1,17 +1,25 @@
 ---
-title: Picross
 layout: default
-permalink: /picross
+permalink: /problems/picross
+documentclass: tufte-handout
+classoption: twoside
+mainfont: Linux Libertine
+mathfont: Asana Math
+header-includes:
+  - \usepackage{graphicx}
+  - \usepackage{marvosym}
+  - \usepackage{tikz}
+  - \usepackage{mathtools}
 ---
 
-## Picross
+# Picross
 
-### Description of the problem
+## Description of the problem
 
 Picross is a popular game of a similar nature to Sudoku.  
 It consists of a grid of square dimension $n \times n$ and of a list of integers for each row and each column.
 
-![](./picross_duck.png)
+![Solution for the duck problem](./picross_duck.png){ width="180px" }
 
 We can use the following notations:
 
@@ -21,7 +29,7 @@ We can use the following notations:
 
 The goal is to darken some cells of the grid, such that in each row/column $i$ the number of successive black cells form the list $\{a_{i,1}, ..., a_{i,m_i}\}$.
 
-### Paper submission
+## Paper submission
 
 Before heading to the code, you shall answer the following questions.<br/>
 
@@ -50,15 +58,11 @@ You are provided with a set of problems in the Python dictionary `picross`. Your
 
 Have a look at variables `lines` and `columns`, since you will have to feed this data into your problem. From now, it should be (almost) direct to code the constraints you have written on paper into Python.
 
-### Code submission
+## Code submission
 
-Return a file named `picross_solve.py` with a function with the following signature. Your code will be automatically evaluated on many problems: you will not get any point if you don't follow this simple convention.
+Return a file named `picross_solve.py` with a function with the following signature. Your code will be automatically evaluated on many problems: you will not get any point if you do not follow this simple convention.
 
 ```python
-from __future__ import annotations
-
-import facile
-
 def picross_solve(
     lines: list[list[int]],
     columns: list[list[int]],
