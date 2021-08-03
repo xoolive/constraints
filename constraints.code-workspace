@@ -1,0 +1,29 @@
+{
+  "folders": [{ "path": "." }],
+  "settings": {
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Args": [
+      "--extend-ignore=E203",
+      "--max-line-length=80"
+    ],
+
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["-l80"],
+
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": false,
+
+    "[python]": {
+      "files.insertFinalNewline": true
+    },
+    "[markdown]": {
+      "editor.wordWrap": "wordWrapColumn"
+    },
+    "python.pythonPath": "/opt/miniconda3/envs/py39/bin/python"
+  }
+}

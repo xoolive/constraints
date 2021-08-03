@@ -1,3 +1,5 @@
+import facile
+
 # The list comprehension mechanism is always helpful!
 [s, e, n, d, m, o, r, y] = [facile.variable(range(10)) for i in range(8)]
 
@@ -18,11 +20,11 @@ facile.constraint(c2 + s + m == o + 10 * m)
 
 if facile.solve(letters):
     [vs, ve, vn, vd, vm, vo, vr, vy] = [x.value() for x in letters]
-    print ("Solution found :")
+    print("Solution found :")
     print
-    print ("  %d%d%d%d" % (vs, ve, vn, vd))
-    print ("+ %d%d%d%d" % (vm, vo, vr, ve))
-    print ("------")
-    print (" %d%d%d%d%d" % (vm, vo, vn, ve, vy))
+    print("  %d%d%d%d" % (vs, ve, vn, vd))
+    print("+ %d%d%d%d" % (vm, vo, vr, ve))
+    print("------")
+    print(" %d%d%d%d%d" % (vm, vo, vn, ve, vy))
 else:
-    print ("No solution found")
+    print("No solution found")

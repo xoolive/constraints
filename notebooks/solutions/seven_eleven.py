@@ -1,13 +1,14 @@
-# Variables
-# There is a risk of integer overflow when computing a*b*c*d
-# We need small domains...
 import facile
+
+# -- Variables --
+# There is a risk of integer overflow when computing a*b*c*d
+# We need smaller domains...
 a = facile.variable(range(0, 321))
 b = facile.variable(range(0, 161))
 c = facile.variable(range(0, 131))
 d = facile.variable(range(0, 131))
 
-# Constraints
+# -- Constraints --
 
 # The problem
 facile.constraint(a + b + c + d == 711)
@@ -26,7 +27,7 @@ for x in [a, b, c, d]:
 
 print()
 
-# Resolution
+# -- Resolution --
 sol = facile.solve([a, b, c, d], backtrack=True)
 
 # wow ! Only two backtracks !!
