@@ -14,8 +14,9 @@ A self-documented notebook is available in the notebook folder. The free and ope
 You will need a working Python environment. Anaconda is recommended. To access the materials:
 
 ```sh
-pip install 'facile>=1.5'
 git clone https://github.com/xolearn/constraints
+cd constraints
+pip install -r requirements.txt
 jupyter lab
 ```
 

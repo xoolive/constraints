@@ -1,0 +1,7 @@
+facile>=1.5
+jupyterlab
+matplotlib
+numpy
+mypy
+flake8
+isort
