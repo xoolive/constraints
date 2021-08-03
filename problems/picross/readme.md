@@ -31,7 +31,7 @@ The goal is to darken some cells of the grid, such that in each row/column $i$ t
 
 ## Paper submission
 
-Before heading to the code, you shall answer the following questions.<br/>
+Before heading to the code, you shall answer the following questions.
 
 Please **handwrite** your answers on a separate sheet of paper. You will submit a pdf scan of this document together with your notebook.  
 (You may take a picture with your phone if need be but the pdf option is preferred.)
