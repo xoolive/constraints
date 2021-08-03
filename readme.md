@@ -39,7 +39,7 @@ In case you are stuck with your configuration, you can fall back to a slightly l
 
 ## Project
 
-More details on this [page](/problems).
+More details on this [page](problems).
 
 ## Further reading
 
