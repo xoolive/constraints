@@ -36,7 +36,7 @@ List of problems:
       print(f"array:   {[v.value() for v in array]}")
   ```
 
-- You may use the & and | operators for the logical $\land$ and $\lor$.<br/>(However, this doesn't work with global constraints such as alldifferent)
+- You may use the & and \| operators for the logical $\land$ and $\lor$. However, this doesn't work with global constraints such as alldifferent
 
   ```python
   import facile
