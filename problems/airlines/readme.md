@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /problems/picross
+permalink: /problems/airlines
 documentclass: tufte-handout
 classoption: twoside
 mainfont: Linux Libertine
