@@ -1,2 +1,6 @@
 logo: documents/queen.png
 theme: jekyll-theme-minimal
+repository: xoolive/constraints
+exclude:
+  - documents
+  - notebooks
