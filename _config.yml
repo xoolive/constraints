@@ -1,8 +1,6 @@
-logo: documents/queen.png
+logo: logo/queen.png
 theme: jekyll-theme-minimal
 repository: xoolive/constraints
 exclude:
   - documents
   - notebooks
-include:
-  - documents/queen.png
