@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-import click
-import facile
 import signal
 import sys
 
+import click
+import facile
 
 from picross import picross
 
@@ -22,12 +22,7 @@ def picross_solve(
 
 
 @click.command(help="Picross solver program")
-@click.argument(
-    "name",
-    default="moon",
-    # help="The name of the problem you want to solve.",
-    # show_default=True,
-)
+@click.argument("name", default="moon")
 def main(name: str) -> None:
     lines, columns = picross[name]
 
