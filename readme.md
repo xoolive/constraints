@@ -9,9 +9,7 @@ This is a short course about constraint programming.
 
 ## Environment setup
 
-<div class="alert alert-warning">
-<b>Windows users</b> should first activate WSL using the official <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">instructions</a> (<a href="https://docs.microsoft.com/fr-fr/windows/wsl/install-win10">French version</a>). Please install the most recent Ubuntu version (unless you have another version ready.)
-</div>
+**Windows users** should first activate WSL using the official [instructions](https://docs.microsoft.com/en-us/windows/wsl/install-win10) ([French version](https://docs.microsoft.com/fr-fr/windows/wsl/install-win10)). Please install the most recent Ubuntu version (unless you have another version ready.)
 
 You will need to set up **by yourself** the following pieces:
 
@@ -21,7 +19,7 @@ You will need to set up **by yourself** the following pieces:
   code --install-extension ms-python.python ms-toolsai.jupyter
   ```
 
-  **Windows users** should also activate the Remote WSL extension:
+  **Windows users** should install Visual Studio Code in Windows (not WSL) then activate the Remote WSL extension:
 
   ```sh
   code --install-extension ms-vscode-remote.remote-wsl
@@ -29,7 +27,7 @@ You will need to set up **by yourself** the following pieces:
 
 - an Anaconda distribution, from the [following link](https://www.anaconda.com/products/individual). In case the question arises, it is very likely that the best suited version for your needs is the 64 bits one. Anaconda is more than a Python distribution: it also provides additional dependencies you may need;
 
-  **Windows users** should install the anaconda distribution on their Linux subsystems.
+  **Windows users** should install the Anaconda distribution within their Ubuntu subsystem.
 
 - the `git` (or `git.exe` for Windows users) program, for version control. Using Git falls out of scope of this seminar, but you are **strongly encouraged** to become proficient with it. You may find resources on [GitHub Learning Lab](https://lab.github.com/), e.g. the following course for [first-timers](https://lab.github.com/lmachens/git-and-github-first-timers).
 
@@ -46,7 +44,7 @@ You will need to set up **by yourself** the following pieces:
   git clone https://github.com/xoolive/constraints
   ```
 
-  **Windows users** should install the dependencies within their Ubuntu subsystem
+  **Windows users** should install the dependencies within their Ubuntu subsystem.
 
   You may move the folder at any time if you prefer to keep things sorted differently on your computer.
 
