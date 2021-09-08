@@ -5,7 +5,7 @@ permalink: /problems/
 
 # Problems
 
-Several projects are available in the `problems/` folder. You will be evaluated on one of the projects available there. Obviously, these notebooks do not contain any hint or solution.
+Several projects are available in the `problems/` folder. You will be evaluated on one of the projects available there. Obviously, these projects do not contain any hint or solution.
 
 ## List of candidate problems
 
@@ -16,7 +16,7 @@ Several projects are available in the `problems/` folder. You will be evaluated 
 
 ## Useful tips for the `facile` library
 
-- You may index arrays of variables with a `facile` variable or expression. But you first need to wrap the array with the facile.array function.
+- You may **index arrays of variables** with a `facile` variable or expression. But you first need to wrap the array with the facile.array function.
 
   Example: find the position of the first 0 in a given array.
 
@@ -41,9 +41,9 @@ Several projects are available in the `problems/` folder. You will be evaluated 
   ```python
   # a 10×10 array of binary variables
   facile.Array.binary((10, 10))
-  # a 5×5 array of variables with a domain of range(3)
+  # a 5×5 array of variables with a domain of [0, 1, 2]
   facile.Array.variable((5, 5), range(3))
-  # a 1D array of variables taking values over [0, 9]
+  # a 1D array of 10 variables taking values over [0, 9]
   facile.Array.variable(10, 0, 9)
   ```
 
@@ -99,3 +99,14 @@ Several projects are available in the `problems/` folder. You will be evaluated 
   **Warning**
 
   Using `solve_all` does not assign any value to a variable. You will get `None` for any `x.value()`. The explanation lies in the fact the Branch&Bound algorithm returns with no solution found, hence the last `None`. Note the similar behaviour with the `minimize` function.
+
+- **Search goals** may be defined in order to conduct your resolution process. For tiling problems, i.e. placing elements in a two-dimensional grid, it is common to first assign the x variables, ensure they don't violate any constraint, then assign the y variables.
+
+  This would be written in `facile` as:
+
+  ```python
+  gx = facile.Goal.forall(x, assign="assign")
+  gy = facile.Goal.forall(y, assign="assign")
+
+  solution = facile.solve(gx & gy)
+  ```
